@@ -9,6 +9,7 @@ var Controller = {
     View.renderCanvas(Model.canvasDimensions);
     View.displayAsteroids(Model.asteroids);
     Model.moveAsteroids();
+    Model.cleanupAsteroids(); 
   }
 
 }

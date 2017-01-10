@@ -26,28 +26,53 @@ var Model = {
       params.y = Model.canvasDimensions.y + params.radius
     }
 
+    params.startingX = params.x;
+    params.startingY = params.y;
 
     return params
   },
 
-  cleanupAsteroids: function(){
-    var indexes = []
-    Model.asteroids.forEach(function(asteroid, index){
-      var verticalEdge = false
-      var horizontalEdge = false
-      var overshot = false
-      
+  cleanupAsteroids: function(){ // TODO: refactor
+    Model.asteroids.forEach(function(asteroid){
 
-      if(verticalEdge && horizontalEdge && overshot){
-        indexes.push(index)
+      var leftEdge = false
+      var rightEdge = false
+      var topEdge = false
+      var bottomEdge = false;
+      var overshot = false
+
+      if (asteroid.x < 0 - asteroid.radius) {
+        leftEdge = true;
       }
-    })
-  // iterate over asteroids
-  // if x delete, y delete and dir delete all true then delete asteroid
-  //if asteroid x < 0 - asteroid.radius || x > canvas.x + asteroid.radius
-  //  
-  //if asteroid y same as above
-  // verify vector
+      if (asteroid.x > Model.canvasDimensions.x + asteroid.radius) {
+        rightEdge = true;
+      }
+
+      if (asteroid.y < 0 - asteroid.radius) {
+        topEdge = true;
+      }
+      if (asteroid.y > Model.canvasDimensions.y + asteroid.radius) {
+        bottomEdge = true;
+      }
+
+      if (asteroid.vX > 0 && asteroid.vY > 0 && (rightEdge || bottomEdge)) {
+        overshot = true;
+      }
+      if (asteroid.vX < 0 && asteroid.vY < 0 && (leftEdge || topEdge)) {
+        overshot = true;
+      }
+      if (asteroid.vX > 0 && asteroid.vY < 0 && (rightEdge || topEdge)) {
+        overshot = true;
+      }
+      if (asteroid.vX < 0 && asteroid.vY > 0 && (leftEdge || bottomEdge)) {
+        overshot = true;
+      }
+
+      if (overshot) {
+        asteroid.x = asteroid.startingX;
+        asteroid.y = asteroid.startingY;
+      };
+    });
   },
 
   randomPosNeg: function() {
@@ -57,7 +82,6 @@ var Model = {
 
   createAsteroids: function(numAsteroids) {
     for(var i = 0; i < numAsteroids; i++){
-      
       Model.asteroids.push(new ASTEROIDS.Asteroid(Model.generateAsteroidParams()))
     }
   },

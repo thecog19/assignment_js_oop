@@ -7,7 +7,9 @@ ASTEROIDS.Asteroid = function(options) {
   this.y = options.y;
   this.vX = options.vX;
   this.vY = options.vY;
-  this.radius = options.radius
+  this.radius = options.radius;
+  this.startingX = options.startingX;
+  this.startingY = options.startingY;  
 }
 
 ASTEROIDS.Asteroid.prototype.tic = function() {
