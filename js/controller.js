@@ -1,6 +1,6 @@
 var Controller = {
   init: function(){
-    Model.init(15);
+    Model.init(80);
     View.init(Model.canvasDimensions)
     setInterval(Controller.gameLoop, 100);
   },

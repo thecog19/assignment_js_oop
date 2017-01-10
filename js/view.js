@@ -33,9 +33,9 @@ var View = {
 
   displayShip: function(ship, canvasDimensions){
     View.context.save();
-    View.context.translate(400,400);
+    View.context.translate(ship.x,ship.y);
     View.context.rotate(ship.rotationAngle*(Math.PI/180));
-    View.context.translate(-400,-400)
+    View.context.translate(-ship.x,-ship.y)
     View.context.strokeStyle = "#fff"
     View.context.lineWidth = 5;
     View.context.beginPath();
