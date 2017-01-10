@@ -1,12 +1,13 @@
 var Controller = {
   init: function(){
+    Model.init(15);
     View.init(Model.canvasDimensions)
-    Model.createAsteroids(15);
     setInterval(Controller.gameLoop, 100);
   },
 
   gameLoop: function(){
     View.renderCanvas(Model.canvasDimensions);
+    View.displayShip(Model.ship);
     View.displayAsteroids(Model.asteroids);
     Model.moveAsteroids();
     Model.cleanupAsteroids();

@@ -5,6 +5,20 @@ var Model = {
 
   asteroids: [],
   canvasDimensions: { x: 800, y: 800 },
+  ship: undefined,
+
+  init: function(num){
+    Model.ship = new ASTEROIDS.Ship({
+      x: Model.canvasDimensions.x/2,
+      y: Model.canvasDimensions.y/2
+    })
+    Model.createAsteroids(num)
+  },
+
+  generateShipDimensions: function(){
+    lengthSymSides = 2*Model.ship.radius*Math.cos(Math.PI/12)
+    lengthOtherSide = 2*Model.ship.radius*Math.sin(Math.PI/12)
+  }
 
   generateAsteroidParams: function() {
     var params = {

@@ -28,6 +28,18 @@ var View = {
     View.context.closePath()
     View.context.stroke()
     View.context.fill()
+  },
+
+  displayShip: function(ship){
+    View.context.strokeStyle = "#fff"
+    View.context.lineWidth = 10;
+    View.context.beginPath();
+    View.context.moveTo(10, 10);
+    View.context.lineTo(10, 30);
+    View.context.lineTo(30, 30);
+    View.context.closePath();
+    View.context.stroke();
+    View.context.fill()
   }
   
 }
