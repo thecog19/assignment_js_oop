@@ -1,6 +1,6 @@
 var ASTEROIDS = ASTEROIDS || {}
 
-ASTEROIDS.Asteroid = function(options) {
+ASTEROIDS.Asteroid2 = function(options) {
   options = options || {};
 
   this.x = options.x;
@@ -8,8 +8,8 @@ ASTEROIDS.Asteroid = function(options) {
   this.vX = options.vX;
   this.vY = options.vY;
 
-  var tic = function() {
-  this.x += this.vX;
-  this.y += this.vY;
+  this.tic = function() {
+    this.x += this.vX;
+    this.y += this.vY;
   }
 }
