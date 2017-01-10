@@ -10,8 +10,8 @@ var View = {
     $("canvas")
     .attr("width", canvasDimensions.x )
     .attr("height", canvasDimensions.y)
+    View.context.rotate(Math.PI/6);
     View.context.fillRect(0,0, canvasDimensions.x, canvasDimensions.y);
-
   },
 
   displayAsteroids: function(asteroids){
@@ -30,16 +30,18 @@ var View = {
     View.context.fill()
   },
 
-  displayShip: function(ship){
+  displayShip: function(ship, canvasDimensions){
     View.context.strokeStyle = "#fff"
-    View.context.lineWidth = 10;
+    View.context.lineWidth = 5;
     View.context.beginPath();
-    View.context.moveTo(10, 10);
-    View.context.lineTo(10, 30);
-    View.context.lineTo(30, 30);
+    View.context.moveTo(ship.x, ship.y);
+    View.context.lineTo(ship.x - 10, ship.y + 30);
+    View.context.lineTo(ship.x + 10, ship.y + 30);
     View.context.closePath();
     View.context.stroke();
+    View.context.fillRect(0,0, canvasDimensions.x, canvasDimensions.y);
     View.context.fill()
+    View.context.rotate(-Math.PI/6);
   }
-  
+
 }

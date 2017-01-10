@@ -11,14 +11,9 @@ var Model = {
     Model.ship = new ASTEROIDS.Ship({
       x: Model.canvasDimensions.x/2,
       y: Model.canvasDimensions.y/2
-    })
-    Model.createAsteroids(num)
+    });
+    Model.createAsteroids(num);
   },
-
-  generateShipDimensions: function(){
-    lengthSymSides = 2*Model.ship.radius*Math.cos(Math.PI/12)
-    lengthOtherSide = 2*Model.ship.radius*Math.sin(Math.PI/12)
-  }
 
   generateAsteroidParams: function() {
     var params = {

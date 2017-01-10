@@ -7,7 +7,7 @@ var Controller = {
 
   gameLoop: function(){
     View.renderCanvas(Model.canvasDimensions);
-    View.displayShip(Model.ship);
+    View.displayShip(Model.ship, Model.canvasDimensions);
     View.displayAsteroids(Model.asteroids);
     Model.moveAsteroids();
     Model.cleanupAsteroids();
