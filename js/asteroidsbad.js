@@ -7,9 +7,9 @@ ASTEROIDS.Asteroid = function(options) {
   this.y = options.y;
   this.vX = options.vX;
   this.vY = options.vY;
-}
 
-ASTEROIDS.Asteroid.prototype.tic = function() {
+  var tic = function() {
   this.x += this.vX;
   this.y += this.vY;
+  }
 }
