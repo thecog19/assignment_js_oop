@@ -1,7 +1,7 @@
 var Controller = {
   init: function(){
     View.init(Model.canvasDimensions)
-    Model.createAsteroids(80);
+    Model.createAsteroids(100);
     setInterval(Controller.gameLoop, 100);
   },
 
