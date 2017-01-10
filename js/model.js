@@ -1,4 +1,5 @@
 var ASTEROIDS = ASTEROIDS || {}
+var SHIP = SHIP || {}
 
 var Model = {
 
