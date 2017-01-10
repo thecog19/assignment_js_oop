@@ -1,0 +1,9 @@
+.asteroid-field {
+  width: 70%;
+  height: 800px;
+}
+
+.asteroid-field .canvas {
+  width: 70%;
+  height: 800px;
+}
