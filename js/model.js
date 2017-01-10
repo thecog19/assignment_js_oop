@@ -42,6 +42,30 @@ var Model = {
     return params
   },
 
+  moveShip: function(keypress){
+    if(keypress === 39){
+      Model.ship.rotationAngle -= 5
+    }
+
+    if(keypress === 37){
+      Model.ship.rotationAngle += 5
+    }
+
+    if(keypress === 38){
+      Model.ship.accel += 1
+    }
+
+    if(keypress === 40){
+      Model.ship.accel -= 1
+    }
+  },
+
+  updateShipPosition: function(){
+    Model.ship.x +=  Model.ship.accel
+    Model.ship.y +=  Model.ship.accel
+
+  },
+
   cleanupAsteroids: function(){ // TODO: refactor
     Model.asteroids.forEach(function(asteroid){
 

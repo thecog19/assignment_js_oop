@@ -9,12 +9,18 @@ var Controller = {
     View.renderCanvas(Model.canvasDimensions);
     View.displayShip(Model.ship, Model.canvasDimensions);
     View.displayAsteroids(Model.asteroids);
+    Model.updateShipPosition();
     Model.moveAsteroids();
     Model.cleanupAsteroids();
-  }
+  },
 
+  shipAction: function(event){
+    Model.moveShip(event.keyCode)
+  }
 }
 
 $(document).ready(function() {
+  
+  
   Controller.init();
 });
